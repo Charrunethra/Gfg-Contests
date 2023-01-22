@@ -1,0 +1,38 @@
+//INTERVIEW SERIES
+Input: 
+N = 5,M = 5,
+S = abbbb
+T = afbef
+Output:
+3
+Explanation:
+"abb" is prefix of S but not a
+Subsequence of T.
+
+Input:
+N = 1,M = 5,
+S = a
+T = afdcf
+Output:
+-1
+Explanation:
+Every prefix of S is a subsequence
+of T.
+
+//CODE:
+class Solution{
+    static int maximumPrefix(int n, int m, String s, String t){
+        char S[]=s.toCharArray();
+        char T[]=t.toCharArray();
+        int ans=0;
+        for(int i=0;i<m;i++){
+            if(ans<n && S[ans]==T[i]){
+                ans++;
+            }
+        }
+        if(ans==n)
+        return -1;
+        return 1+ans;
+    }
+}
+
